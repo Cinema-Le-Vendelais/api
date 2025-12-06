@@ -1,0 +1,167 @@
+{
+    "affiches": {
+        "table": "affiches-v2",
+        "identifier": "id",
+        "elements": {
+            "title": {},
+            "date": {},
+            "projection": {},
+            "poster": { "canBeNull": true },
+            "tmdb_id": { "canBeNull": true },
+            "gf": { "canBeZero": true },
+            "pf": { "canBeZero": true },
+            "rouleau": { "canBeZero": true },
+            "commentaire": { "required": false },
+            "num_rouleau": { "canBeNull": true, "canBeZero": true, "required": false }
+        }
+    },
+
+    "events": {
+        "table": "evenements",
+        "identifier": "id",
+        "elements": {
+            "name": {},
+            "content": {},
+            "cover": {},
+            "url": { "canBeNull": true },
+            "start_date": { "canBeNull": true },
+            "end_date": { "canBeNull": true },
+            "slider_order": { "canBeNull": true, "canBeZero": true }
+        }
+    },
+
+    "annonceurs": {
+        "table": "annonceurs",
+        "identifier": "id",
+        "elements": {
+            "name": {},
+            "image": {},
+            "link": { "canBeNull": true },
+            "type": {}
+        }
+    },
+
+    "correct": {
+        "table": "movies_correct",
+        "identifier": "id",
+        "elements": {
+            "title": { "canBeNull": true },
+            "bill_url": { "canBeNull": true },
+            "trailer": { "canBeNull": true },
+            "sessions": { "canBeNull": true },
+            "hided": { "canBeZero": true },
+            "avis": { "canBeNull": true }
+        }
+    },
+
+    "roles": {
+        "table": "roles",
+        "identifier": "id",
+        "elements": {
+            "name": {  },
+            "wa_groups": { "isJson": true, "canBeNull": true },
+            "nc_groups": { "isJson": true, "canBeNull": true },
+            "mailing_lists": { "isJson": true, "canBeNull": true },
+            "hided": { "canBeZero": true, "required": false }
+        },
+        "useCustomClass": true,
+        "customClassFile": "Roles.php"
+    },
+
+    "links": {
+        "table": "short_urls",
+        "identifier": "short",
+        "elements": {
+            "short": {  },
+            "url": {  },
+            "expires": { "canBeNull": true },
+            "clicks": { "canBeZero": true },
+            "keyword": { "canBeNull": true }
+        },
+        "useCustomClass": true,
+        "customClassFile": "Links.php"
+    },
+
+    "surveys": {
+        "table": "surveys",
+        "identifier": "id",
+        "elements": {
+            "name": {  },
+            "description": {  },
+            "data": { "isJson": true },
+            "type": {  },
+            "start_date": {  },
+            "end_date": {  },
+            "privacy": {  },
+            "max_replies": { "canBeZero": true }
+        },
+        "useCustomClass": true,
+        "customClassFile": "Surveys.php"
+    },
+
+    "benevoles": {
+        "table": "benevoles",
+        "identifier": "uuid",
+        "elements": {
+            "uuid": {  },
+            "forename": {  },
+            "family_name": {  },
+            "email": { "encrypted": true },
+            "phone": { "encrypted": true },
+            "roles": { "isJson": true },
+            "start_date": { "required": false }
+        },
+        "--useCustomClass": true,
+        "--customClassFile": "Benevoles.php"
+    },
+
+    "files": {
+        "useCustomClass": true,
+        "customClassFile": "Files.php"
+    },
+
+    "categories": {
+        "useCustomClass": true,
+        "customClassFile": "Categories.php"
+    },
+
+    "trailer": {
+        "useCustomClass": true,
+        "customClassFile": "Trailer.php"
+    },
+
+    "movies": {
+        "useCustomClass": true,
+        "customClassFile": "Movies.php"
+    },
+
+    "newsletter": {
+        "useCustomClass": true,
+        "customClassFile": "Newsletter.php"
+    },
+
+    "settings": {
+        "useCustomClass": true,
+        "customClassFile": "Settings.php"
+    },
+
+    "allocine": {
+        "useCustomClass": true,
+        "customClassFile": "AlloCine.php"
+    },
+
+    "nextcloud": {
+        "useCustomClass": true,
+        "customClassFile": "NextCloud.php"
+    },
+
+    "ovh": {
+        "useCustomClass": true,
+        "customClassFile": "Ovh.php"
+    },
+
+    "ads": {
+        "useCustomClass": true,
+        "customClassFile": "Ads.php"
+    }
+}
