@@ -34,12 +34,27 @@ class CustomController extends Controller
         return $this->returnResponse($decoded);
     }
 
+    function movieImages($id)
+    {
+        $data = @file_get_contents("https://api.themoviedb.org/3/movie/".$id."/images?api_key=".$this->apiKey."&language=fr");
+        
+        if ($data === false) {
+            return $this->notFoundResponse();
+        }
+        
+        $decoded = json_decode($data, true);
+        return $this->returnResponse($decoded);
+    }
+
     function loadMethods()
     {
         switch ($this->method) {
             case "GET":
                 if (!empty($this->param)) {
                     switch($this->param) {
+                        case "images":
+                            return $this->Response($this->movieImages($_GET["id"]));
+                            break;
                         case "search":
                             return $this->Response($this->searchMovie($_GET["name"]));
                             break;
