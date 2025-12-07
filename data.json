@@ -163,5 +163,10 @@
     "ads": {
         "useCustomClass": true,
         "customClassFile": "Ads.php"
+    },
+
+    "tmdb": {
+        "useCustomClass": true,
+        "customClassFile": "TMDB.php"
     }
 }
