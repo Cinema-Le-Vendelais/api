@@ -45,6 +45,7 @@
         "table": "movies_correct",
         "identifier": "id",
         "elements": {
+            "id": { "canBeNull": true },
             "title": { "canBeNull": true },
             "bill_url": { "canBeNull": true },
             "trailer": { "canBeNull": true },
