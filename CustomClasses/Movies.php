@@ -33,10 +33,15 @@ class CustomController extends Controller
         try{
 
             $redis = new Redis();
-            $redis->connect($_ENV["REDIS_HOST"], $_ENV["REDIS_PORT"], 1);
-            $redis->auth($_ENV["REDIS_PASSWORD"]);
+            $redis->setOption(Redis::OPT_SCAN, Redis::SCAN_RETRY);
+            $connected = @$redis->connect($_ENV["REDIS_HOST"], $_ENV["REDIS_PORT"], 0.1);
 
-            if ($redis->ping() == '+PONG') {
+            if($connected){
+                $redis->auth($_ENV["REDIS_PASSWORD"]);
+            }
+            
+
+            if ($connected && $redis->ping() == '+PONG') {
                 if ($redis->exists("levendel-api-movies")) {
                     $json = json_decode($redis->get('levendel-api-movies'), true);
                 } else {
